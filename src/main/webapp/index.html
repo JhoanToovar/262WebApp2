@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gestión de Estudiantes y Cursos</h1>
+
+    <!--Solicitud HTTP-->
+    <h2>Registrar estudiante</h2>
+    <form action="students" method="POST">
+        <input
+                name="code"
+                type="text"
+                placeholder="Código (A00123456)">
+        <input
+                name="name"
+                type="text"
+                placeholder="Nombre">
+        <input
+                name="program"
+                type="text"
+                placeholder="Programa">
+        <input
+                name="courseId"
+                type="number"
+                placeholder="Id del curso">
+        <button>Enviar</button>
+    </form>
+
+    <h2>Registrar curso</h2>
+    <form action="courses" method="POST">
+        <input
+                name="id"
+                type="number"
+                placeholder="Id del curso">
+        <input
+                name="name"
+                type="text"
+                placeholder="Nombre del curso">
+        <input
+                name="professorName"
+                type="text"
+                placeholder="Profesor">
+        <input
+                name="schedule"
+                type="text"
+                placeholder="Horario">
+        <button>Enviar</button>
+    </form>
+
+</body>
+</html>

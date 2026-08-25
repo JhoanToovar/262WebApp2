@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Repositorios-->
+    <bean id="courseRepository"
+          class="edu.co.icesi.repository.CourseRepository"/>
+
+    <bean id="studentRepository"
+          class="edu.co.icesi.repository.StudentRepository">
+        <constructor-arg ref="courseRepository"/>
+    </bean>
+
+    <!--Services-->
+    <bean id="courseService"
+          class="edu.co.icesi.service.CourseService">
+        <constructor-arg ref="courseRepository"/>
+    </bean>
+
+    <bean id="studentService"
+          class="edu.co.icesi.service.StudentService">
+        <constructor-arg ref="studentRepository"/>
+    </bean>
+
+</beans>
