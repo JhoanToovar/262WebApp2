@@ -6,7 +6,8 @@
 
     <!--Repositorios-->
     <bean id="courseRepository"
-          class="edu.co.icesi.repository.CourseRepository"/>
+          class="edu.co.icesi.repository.CourseRepository"
+          init-method="initialize"/>
 
     <bean id="studentRepository"
           class="edu.co.icesi.repository.StudentRepository">
@@ -22,6 +23,7 @@
     <bean id="studentService"
           class="edu.co.icesi.service.StudentService">
         <constructor-arg ref="studentRepository"/>
+        <constructor-arg ref="courseRepository"/>
     </bean>
 
 </beans>

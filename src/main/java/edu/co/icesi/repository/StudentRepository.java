@@ -20,13 +20,6 @@ public class StudentRepository {
     }
 
     public void save(Student student) {
-        // Queremos que se guarde el estudiante en su repositorio y todos sus cursos en otro repositorio
-        // Separamos los elementos a la entrada y guardamos cada objeto en su lugar
-        if (student.getCourses() != null) {
-            for (Course course : student.getCourses()) {
-                courseRepository.save(course);
-            }
-        }
         students.add(student);
     }
 }

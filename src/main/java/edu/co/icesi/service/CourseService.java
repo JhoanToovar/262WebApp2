@@ -3,6 +3,7 @@ package edu.co.icesi.service;
 import edu.co.icesi.model.Course;
 import edu.co.icesi.repository.CourseRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 public class CourseService {
@@ -17,7 +18,7 @@ public class CourseService {
         courseRepository.save(course);
     }
 
-    public List<Course> getCourses() {
+    public Collection<Course> getCourses() {
         return courseRepository.findAll();
     }
 }

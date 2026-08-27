@@ -39,5 +39,28 @@ public class ServletStudents extends HttpServlet {
         // TODO: leer code, name, program y courseId del request.
         // TODO: registrar al estudiante e inscribirlo directamente en el curso con id = courseId.
         // Lo resolvemos en clase.
+
+        String id = req.getParameter("id");
+        String code = req.getParameter("code");
+        String name = req.getParameter("name");
+        String program = req.getParameter("program");
+        String courseId = req.getParameter("courseId");
+
+        System.out.println(code);
+
+        //llamar al service con la info recolectada
+
+        Student student = new Student();
+
+        student.setId(Integer.parseInt(id));
+        student.setCode(code);
+        student.setName(name);
+        student.setProgram(program);
+        student.setCourseId(Integer.parseInt(courseId));
+        studentService.addStudent(student);
+
+
+
+
     }
 }
