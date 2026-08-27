@@ -2,13 +2,19 @@ package edu.co.icesi.repository;
 
 import edu.co.icesi.model.Course;
 import edu.co.icesi.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+//@Repository lo vuelve un bean
+@Repository
 public class StudentRepository {
     private List<Student> students = new ArrayList<>();
 
+    //@Autowired es como la flecha de dependencia que indica que necesito esto para existir
+    @Autowired
     private CourseRepository courseRepository;
 
     public StudentRepository(CourseRepository courseRepository) {
@@ -20,13 +26,6 @@ public class StudentRepository {
     }
 
     public void save(Student student) {
-        // Queremos que se guarde el estudiante en su repositorio y todos sus cursos en otro repositorio
-        // Separamos los elementos a la entrada y guardamos cada objeto en su lugar
-        if (student.getCourses() != null) {
-            for (Course course : student.getCourses()) {
-                courseRepository.save(course);
-            }
-        }
         students.add(student);
     }
 }

@@ -1,71 +1,67 @@
 package edu.co.icesi.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Student {
 
+    private int id;
     private String code;
     //Example: A00123456
-
     private String name;
-
     private String program;
+    //llave foranea de course para evitar relaciones sin quitar dependencias
+    private int courseId;
 
-    private List<Course> courses;
+    public Student() {}
 
-    public Student() {
-        this.courses = new ArrayList<>();
-    }
-
-    public Student(String code, String name, String program) {
+    public Student(int id, String code, String name, String program, int courseId) {
+        this.id = id;
         this.code = code;
         this.name = name;
         this.program = program;
-        this.courses = new ArrayList<>();
+        this.courseId = courseId;
     }
 
-    public Student(String code, String name, String program, List<Course> courses) {
-        this.code = code;
-        this.name = name;
-        this.program = program;
-        this.courses = courses != null ? courses : new ArrayList<>();
+
+    public int getId() {
+        return id;
     }
 
     public String getCode() {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getProgram() {
         return program;
     }
 
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setProgram(String program) {
         this.program = program;
     }
 
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
-
-    @Override
-    public String toString() {
-        return code + " - " + name + " (" + program + ")";
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }

@@ -1,18 +1,56 @@
 package edu.co.icesi.repository;
 
 import edu.co.icesi.model.Course;
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
-public class CourseRepository {
-    private List<Course> courses = new ArrayList<>();
+//@Repository es lo que lo hace un bean
 
-    public List<Course> findAll() {
-        return courses;
+// -------- @Component se divide en alias : @Controller o @Service
+
+@Repository
+public class CourseRepository {
+
+    private HashMap<Integer, Course> courses;
+
+    public CourseRepository() {
+        courses = new HashMap<>();
+    }
+
+    public Collection<Course> findAll() {
+        return courses.values();
     }
 
     public void save(Course course) {
-        courses.add(course);
+        courses.put(course.getId(), course);
+    }
+
+    public boolean existsById(int courseId) {
+        return courses.containsKey(courseId);
+    }
+
+    @PostConstruct
+    private void initialize() {
+        Course a = new Course();
+        a.setId(1);
+        a.setName("Compunet 2");
+        a.setSchedule("MA JU 2PM 4PM");
+        a.setProfessorName("Domiciano");
+
+        courses.put(a.getId(), a);
+
+        Course b = new Course();
+        b.setId(2);
+        b.setName("Discretas 3");
+        b.setSchedule("MA JU 4PM 6PM");
+        b.setProfessorName("Marquitos");
+
+        courses.put(b.getId(), b);
+
     }
 }
