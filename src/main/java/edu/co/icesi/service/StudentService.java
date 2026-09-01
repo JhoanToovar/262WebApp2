@@ -1,7 +1,7 @@
 package edu.co.icesi.service;
 
 import edu.co.icesi.model.Student;
-import edu.co.icesi.repository.CourseRepository;
+import edu.co.icesi.repository.ICourseRepository;
 import edu.co.icesi.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,9 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
     @Autowired
-    private CourseRepository courseRepository;
+    private ICourseRepository courseRepository;
 
-    public StudentService(StudentRepository studentRepository, CourseRepository courseRepository) {
+    public StudentService(StudentRepository studentRepository, ICourseRepository courseRepository) {
         this.courseRepository = courseRepository;
         this.studentRepository = studentRepository;
     }

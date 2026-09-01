@@ -14,22 +14,22 @@ import java.util.List;
 // -------- @Component se divide en alias : @Controller o @Service
 
 @Repository
-public class CourseRepository {
+public class CourseRepositoryImpl implements ICourseRepository{
 
     private HashMap<Integer, Course> courses;
 
-    public CourseRepository() {
+    public CourseRepositoryImpl() {
         courses = new HashMap<>();
     }
-
+    @Override
     public Collection<Course> findAll() {
         return courses.values();
     }
-
+    @Override
     public void save(Course course) {
         courses.put(course.getId(), course);
     }
-
+    @Override
     public boolean existsById(int courseId) {
         return courses.containsKey(courseId);
     }

@@ -1,8 +1,10 @@
 package edu.co.icesi.service;
 
 import edu.co.icesi.model.Course;
-import edu.co.icesi.repository.CourseRepository;
+import edu.co.icesi.repository.CourseRepositoryImpl;
+import edu.co.icesi.repository.ICourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -13,9 +15,10 @@ import java.util.List;
 public class CourseService {
 
     @Autowired
-    private CourseRepository courseRepository;
+    @Qualifier("courseRepositoryImpl")
+    private ICourseRepository courseRepository;
 
-    public CourseService(CourseRepository courseRepository) {
+    public CourseService(ICourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 

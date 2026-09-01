@@ -15,9 +15,9 @@ public class StudentRepository {
 
     //@Autowired es como la flecha de dependencia que indica que necesito esto para existir
     @Autowired
-    private CourseRepository courseRepository;
+    private ICourseRepository courseRepository;
 
-    public StudentRepository(CourseRepository courseRepository) {
+    public StudentRepository(ICourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 
